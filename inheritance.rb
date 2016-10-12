@@ -31,41 +31,57 @@ class Country
 		puts "This is the Country."
 	end
 
+
 	def countryName 
-	 # give the country name.
+		puts "countryName -> India"
+		@countryName="India"
 	end
+
 end
 
-class City
+class City<Country
 	def initialize
 		puts "This is the City"
 	end
 
 	# define cityName  --> give the city name
+	def cityName
+		puts "cityName->Mysore"
+		@cityName="Mysore"
+	end
 end
 
 
-class Address < Country
+class Address < City
 	def initialize
 		puts "This is my address."
 	end
 
 	# define completeAddress --> complete address. 
-
+	def streetAddress
+		puts "streetAddress->#96,Railway Layout,Vijaynagar"
+		@streetAddress="96,Railway Layout,Vijaynagar"
+	end
 end
 
-class Number < City
-	def initialize
-		puts "This is my address."
-	end
-
-	# define streetAddress --> '#96, Railway Layout, Vijaynagar'
+# define streetAddress --> '#96, Railway Layout, Vijaynagar'
+class CompleteAddress<Address
 
 	def completeAddress
-		puts streetAddress cityName countryName 
+		puts "#{@streetAddress} #{cityName} #{countryName}"
 	end
 end
+
+
+
 
 
 
 # instantiate a object and check for all address.
+
+
+obj=CompleteAddress.new
+obj.countryName
+obj.cityName
+obj.streetAddress
+obj.completeAddress
